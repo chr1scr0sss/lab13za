@@ -19,3 +19,45 @@ int main(){
     cout << "Min = " << B[5];
     return 0;
 }
+
+void stat(const double X[], int N, double Y[]){
+    double sum=0;
+    double maxValue=X[0];
+    double minValue=X[0];
+    
+    //Arithmetic Mean :-)
+    for(int i=0;i<N;i++){
+        sum += X[i];
+    }
+    Y[0] = sum/N;
+    
+    //SD :-)
+    sum =0;
+    for(int i=0;i<N;i++){
+        sum += pow(X[i]-Y[0],2);
+    }
+    Y[1] = sqrt(sum/N);
+    
+    //Geometric Mean :-)
+    sum=1;
+    for(int i=0;i<N;i++){
+        sum *=X[i];
+    }
+    Y[2] = pow(sum,1.0/N);
+    
+    // Harmonic Mean :-)
+    sum =0;
+    for(int i=0;i<N;i++){
+        sum +=1.0/X[i];
+    }
+    Y[3] = N/sum;
+    
+    //Max and Min :-)
+    for(int i=0;i<N;i++){
+        if(X[i] > maxValue) maxValue = X[i];
+        if(X[i] < minValue) minValue = X[i];
+    }
+    Y[4] =maxValue;
+    Y[5] =minValue;
+
+}
